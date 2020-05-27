@@ -1,4 +1,4 @@
-We have designed and implemented the Google File System, a scalable distributed
+have designed and implemented the Google File System, a scalable distributed
 file system for large distributed data-intensive applications. It provides fault
 tolerance while running on inexpensive commodity hardware, and it delivers high
 aggregate performance to a large number of clients.
