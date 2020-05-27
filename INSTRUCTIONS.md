@@ -53,7 +53,7 @@ origin  git@github.com:$GITHUB_USERNAME/github-practice (fetch)
 origin  git@github.com:$GITHUB_USERNAME/github-practice (push)
 ```
 
-This means your local clone is set up with one remote repository, which it calls `origin`. When it tries to pull commits from `origin` it will use the top URL, and when pushing it will use the bottom one (though the URLs are identical).
+This means your local clone is set up with one remote repository, which it calls `origin`. When it tries to pull commits from `origin` it will use the "fetch" URL, and when pushing it will use the one labeled "push".
 
 ## Create a branch
 
@@ -72,7 +72,7 @@ nothing to commit, working tree clean
 
 By convention, the default branch that is created in a new repository is called "master", and "origin/master" refers to "where this repository thinks the `master` brach on the remote called `origin` is".
 
-For development, you'll typically want to create a new branch for each feature. To create a new branch, you can use `git switch -c` (or `git checkout -b`, which does the same thing, though `switch` is preferred since the `checkout` command is so overloaded). Do this now:
+For development, you'll typically want to create a new branch for each feature. To create a new branch, you can use `git switch -c` (which you'll often see as`git checkout -b`, but that's an older style). Do this now:
 ```
 git switch -c feature-branch
 ```
@@ -83,17 +83,17 @@ On branch feature-branch
 nothing to commit, working tree clean
 ```
 ## Making some changes
-If you poke around this repository, you'll see a couple files in the `abstracts/` directory. We're going to introduce some edits for the purpose of demonstration. Go ahead and use your favorite editor to change a couple words in one of the files. Then (with substitution of an appropriate message) run
+If you poke around this repository, you'll see a couple files in the `abstracts/` directory. We're going to introduce some edits for the purpose of demonstration. Go ahead and use your favorite editor to change a couple words in one of the files. Then (substituting an appropriate commit message) run
 ```
-git commit --all -m "[YOUR_COMMIT_MESSAGE_HERE]" 
+git commit --all -m "[YOUR_COMMIT_MESSAGE_HERE]"
 ```
-Note that you could generally use `git add` to add changes to the index and then `git commit` to type out a real commit message, but we're bypassing that here for brevity.
+Note that you could generally use `git add` to add changes to the index and then `git commit` to type out a real commit message, but we're doing them together for brevity.
 
 Now that you've committed your changes, you can go ahead and push them to your fork on GitHub:
 ```
 git push --set-upstream origin feature-branch
 ```
-The `--set-upstream` flag tells git that you want to associate the local branch named "feature-branch" with the branch named "feature-branch" on the remote server called "origin". After doing this once you can use `git push` to push all commits on the current branch.
+The `--set-upstream` flag tells git that you want to associate the local branch named "feature-branch" with the branch named "feature-branch" on the remote server called "origin". After doing this once you can use `git push` without any additional arguments to push all commits on the current branch.
 
 ## Send a pull request
 
@@ -117,7 +117,7 @@ To pull the current state of the upstream branch into your development repositor
 ```
 git remote add upstream git@github.com:akonradi/github-practice.git
 ```
-Now, `git remote -v` shows both repositories: "upstream" and "origin":
+Now, `git remote -v` shows both repositories: "origin" and "upstream":
 ```
 $ git remote -v
 origin  git@github.com:$GITHUB_USERNAME/github-practice.git (fetch)
@@ -166,7 +166,7 @@ Once a maintainer merges your code, you're in! Your contribution is permanently 
 
 ## Cleaning up
 
-This step is optional, but highly recommended unless you're never going to use your local repository again. Now that your PR is merged, you should update your local repository with the changes. Go ahead and check out the master branch:
+This step is optional, but highly recommended unless you're never going to use your local repository again. Now that your PR is merged, you should update your local repository with the changes. Go ahead and switch to the master branch:
 ```
 git switch master
 ```
@@ -185,4 +185,4 @@ Once you're satisfied, go ahead and delete your local branch:
 ```
 git branch -D feature-branch
 ```
-There's nothing wrong with having it around, but it will clutter other output unnecessarily. Once that's done, you're ready to check out a new branch and start work on a new feature!
+There's nothing wrong with having it around, but it will clutter other output unnecessarily. Once that's done, you're ready to start a new branch and start work on a new feature!
