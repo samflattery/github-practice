@@ -1,12 +1,12 @@
 Google's Borg system is a cluster manager that runs
 hundreds of thousands of jobs, from many thousands of
-different applications, across a number of clusters each
+different apps, across a number of clusters each
 with up to tens of thousands of machines.
 
 It achieves high utilization by combining admission
 control, efficient task-packing, over-commitment,
 and machine sharing with process-level performance
-isolation. It supports high-availability applications
+isolation. It supports high-availability apps
 with runtime features that minimize fault-recovery time,
 and scheduling policies that reduce the probability of
 correlated failures. Borg simplifies life for its users
