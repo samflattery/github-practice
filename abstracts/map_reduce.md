@@ -3,7 +3,8 @@ and generating large data sets. Users specify a map function that processes a
 key/value pair to generate a set of intermediate key/value pairs, and a reduce
 function that merges all intermediate values associated with the same
 intermediate key. Many real world tasks are expressible in this model, as shown
-in the paper.
+in the paper. This models allows for a parallelization which speeds up
+computation
 
 Programs written in this functional style are automatically parallelized and
 executed on a large cluster of commodity machines. The run-time system takes
